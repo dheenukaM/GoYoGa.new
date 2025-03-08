@@ -3,9 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GoYoga</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #6a0dad;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            z-index: 1001; /* Higher than navbar */
+        }
+        .nav-bar {
+            position: fixed;
+            top: 40px; /* Adjust to be below banner */
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .nav-bar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav-bar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin-right: 10px;
+        }
+        .nav-bar ul li {
+            display: inline;
+        }
+        .nav-bar ul li a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+        .nav-bar ul li:last-child {
+            padding-right: 20px;
+        }
+
+        /* Image Slideshow */
+        .image-container {
+            margin-top: 110px;
+            width: 100%;
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+        .image-container img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .image-container img.active {
+            opacity: 1;
+        }
+
+        .about-section {
+            margin-top: 50px;
+            padding: 100px;
+            text-align: center;
+            line-height: 1.8;
+        }
+        .quote {
+            font-size: 24px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .footer {
+            background-color: #6a0dad;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+    <div class="banner">CALM YOUR MIND, LIFT YOUR LIFE</div>
     
+    <header>
+        <nav class="nav-bar">
+            <div class="logo">GOYOGA</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Image Slideshow -->
+    <div class="image-container">
+        <img src="yoga5.avif" class="slide active">
+        <img src="yoga6.jpg" class="slide">
+        <img src="yoga9.jpg" class="slide">
+        <img src="yoga10.jpg" class="slide">
+        <img src="yoga2.avif" class="slide">
+    </div>
+
+    <section id="about" class="about-section">
+        <div class="quote">“Yoga is the journey of the self, through the self, to the self.”</div>
+        <h2>About GoYoga</h2>
+        <p>At GoYoga, we believe in the transformative power of yoga. Our journey began with a passion for holistic wellness and a mission to bring balance and mindfulness into everyday life. Yoga is more than just physical exercise; it is a way to harmonize the body, mind, and spirit.</p>
+        <p>Join us for rejuvenating sessions, whether you're a beginner or an experienced practitioner. Our certified instructors will guide you through poses, breathing exercises, and meditation techniques that promote overall well-being.</p>
+    </section>
+
+    <footer id="contact" class="footer">
+        <h2>Contact Us</h2>
+        <p>Phone: +91 1234567890</p>
+        <p>Email: info@goyoga.com</p>
+        <h3>Our Branches</h3>
+        <p>Branch A: 123 Yoga Street, AA City</p>
+        <p>Branch B: 456 Meditation Lane, BB Town</p>
+    </footer>
+
+    <script>
+        let slides = document.querySelectorAll(".slide");
+        let index = 0;
+
+        function changeSlide() {
+            slides[index].classList.remove("active");
+            index = (index + 1) % slides.length; // Move to the next image
+            slides[index].classList.add("active");
+        }
+
+        setInterval(changeSlide, 2000); // Change image every 2 seconds
+    </script>
 </body>
 </html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - GoYoga</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .container h2 {
+            margin-bottom: 20px;
+            color: #6a0dad;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+          margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            padding-right: 0px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .submit-btn {
+            margin-top: 10px;
+            background-color: #6a0dad;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #5a0cae;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register with GoYoga</h2>
+        <form action="#">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label>
+                <input type="tel" id="mobile" name="mobile" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email ID:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="alt-number">Alternate Number:</label>
+                <input type="tel" id="alt-number" name="alt-number">
+            </div>
+            <div class="form-group">
+                <label for="batch">Select Yoga Session:</label>
+                <select id="batch" name="batch" required>
+                    <option value="6-7am">6 - 7 AM Batch</option>
+                    <option value="7-8am">7 - 8 AM (Women Only Batch)</option>
+                    <option value="8-9am">8 - 9 AM Batch</option>
+                    <option value="9-10am">9 - 10 AM Batch</option>
+                    <option value="4-5pm">4 - 5 PM (Kids Only Batch)</option>
+                    <option value="5-6pm">5 - 6 PM Batch</option>
+                </select>
+            </div>
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+    </div>
+</body>
+</html>
