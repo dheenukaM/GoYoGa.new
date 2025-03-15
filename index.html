@@ -20,11 +20,11 @@
             text-align: center;
             padding: 10px;
             font-size: 18px;
-            z-index: 1001; /* Higher than navbar */
+            z-index: 1001;
         }
         .nav-bar {
             position: fixed;
-            top: 40px; /* Adjust to be below banner */
+            top: 40px;
             left: 0;
             width: 100%;
             z-index: 1000;
@@ -56,37 +56,44 @@
         .nav-bar ul li:last-child {
             padding-right: 20px;
         }
-
-        /* Image Slideshow */
         .image-container {
             margin-top: 110px;
             width: 100%;
             height: 80vh;
             position: relative;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .image-container img {
+        .image-container picture {
             position: absolute;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
-        .image-container img.active {
+        .image-container picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+        .image-container picture.active {
             opacity: 1;
         }
-
+        @media (max-width: 768px) {
+            .image-container {
+                height: 50vh;
+            }
+        }
         .about-section {
             margin-top: 50px;
             padding: 100px;
             text-align: center;
             line-height: 1.8;
-        }
-        .quote {
-            font-size: 24px;
-            font-style: italic;
-            margin-bottom: 20px;
         }
         .footer {
             background-color: #6a0dad;
@@ -98,7 +105,6 @@
 </head>
 <body>
     <div class="banner">CALM YOUR MIND, LIFT YOUR LIFE</div>
-    
     <header>
         <nav class="nav-bar">
             <div class="logo">GOYOGA</div>
@@ -109,42 +115,50 @@
             </ul>
         </nav>
     </header>
-
-    <!-- Image Slideshow -->
     <div class="image-container">
-        <img src="yoga9.jpg" class="slide active">
-        <img src="yoga6.jpg" class="slide">
-        <img src="yoga10.jpg" class="slide">
-        <img src="yoga2.avif" class="slide">
+        <picture class="slide active">
+            <img src="yoga9.jpg" alt="Yoga 1" loading="lazy">
+        </picture>
+        <picture class="slide">
+            <img src="yoga6.jpg" alt="Yoga 2" loading="lazy">
+        </picture>
+        <picture class="slide">
+            <img src="yoga10.jpg" alt="Yoga 3" loading="lazy">
+        </picture>
+        <picture class="slide">
+            <img src="yoga5.jpg" alt="Yoga 4" loading="lazy">
+        </picture>
+        <picture class="slide">
+            <img src="yoga4.jpg" alt="Yoga 4" loading="lazy">
+        </picture>
+        <picture class="slide">
+            <img src="yoga3.jpg" alt="Yoga 4" loading="lazy">
+        </picture>
     </div>
-
     <section id="about" class="about-section">
         <div class="quote">“Yoga is the journey of the self, through the self, to the self.”</div>
         <h2>About GoYoga</h2>
         <p>At GoYoga, we believe in the transformative power of yoga. Our journey began with a passion for holistic wellness and a mission to bring balance and mindfulness into everyday life. Yoga is more than just physical exercise; it is a way to harmonize the body, mind, and spirit.</p>
         <p>Join us for rejuvenating sessions, whether you're a beginner or an experienced practitioner. Our certified instructors will guide you through poses, breathing exercises, and meditation techniques that promote overall well-being.</p>
     </section>
-
     <footer id="contact" class="footer">
         <h2>Contact Us</h2>
         <p>Phone: +91 1234567890</p>
         <p>Email: info@goyoga.com</p>
-        <h3>Our Branches</h3>
-        <p>Branch A: 123 Yoga Street, AA City</p>
-        <p>Branch B: 456 Meditation Lane, BB Town</p>
     </footer>
-
     <script>
-        let slides = document.querySelectorAll(".slide");
-        let index = 0;
+        document.addEventListener("DOMContentLoaded", function () {
+            let slides = document.querySelectorAll(".slide");
+            let index = 0;
 
-        function changeSlide() {
-            slides[index].classList.remove("active");
-            index = (index + 1) % slides.length; // Move to the next image
-            slides[index].classList.add("active");
-        }
+            function changeSlide() {
+                slides.forEach(slide => slide.classList.remove("active"));
+                slides[index].classList.add("active");
+                index = (index + 1) % slides.length;
+            }
 
-        setInterval(changeSlide, 2000); // Change image every 2 seconds
+            setInterval(changeSlide, 2000);
+        });
     </script>
 </body>
 </html>
